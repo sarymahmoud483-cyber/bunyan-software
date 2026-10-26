@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bunyan Software | بنيان للبرمجيات - الأنظمة البرمجية بدقة وحلول متكاملة</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Cairo & Tajawal Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        navy: {
+                            900: '#0B1120',
+                            800: '#0F172A',
+                            700: '#1E293B',
+                            600: '#334155'
+                        },
+                        cyanAccent: '#38BDF8',
+                        blueAccent: '#0284C7',
+                        glowCyan: 'rgba(56, 189, 248, 0.15)'
+                    },
+                    fontFamily: {
+                        cairo: ['Cairo', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #0F172A;
+            color: #F8FAFC;
+        }
+        .glass-card {
+            background: rgba(30, 41, 59, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        .glass-card:hover {
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(56, 189, 248, 0.2);
+        }
+        .glow-text {
+            text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+        }
+        .glow-btn {
+            box-shadow: 0 0 20px rgba(2, 132, 199, 0.4);
+        }
+        .glow-btn:hover {
+            box-shadow: 0 0 30px rgba(56, 189, 248, 0.7);
+        }
+    </style>
+</head>
+<body class="bg-navy-800 text-slate-100 antialiased selection:bg-cyanAccent selection:text-navy-900">
+
+    <!-- Header / Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card bg-navy-800/80 border-b border-slate-800 transition-all duration-300" id="mainHeader">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blueAccent to-cyanAccent p-0.5 shadow-lg group-hover:scale-105 transition-transform">
+                    <div class="w-full h-full bg-navy-900 rounded-[10px] flex items-center justify-center">
+                        <i class="fa-solid fa-cubes text-cyanAccent text-2xl"></i>
+                    </div>
+                </div>
+                <div>
+                    <span class="text-2xl font-black tracking-wider text-white flex items-center gap-1">
+                        BUNYAN <span class="text-cyanAccent">SOFTWARE</span>
+                    </span>
+                    <span class="text-xs text-slate-400 block -mt-1 font-semibold">بنيان للبرمجيات</span>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 font-semibold text-sm">
+                <a href="#home" class="text-cyanAccent hover:text-white transition-colors">الرئيسية</a>
+                <a href="#services" class="text-slate-300 hover:text-cyanAccent transition-colors">خدماتنا</a>
+                <a href="#portfolio" class="text-slate-300 hover:text-cyanAccent transition-colors">معرض الأعمال</a>
+                <a href="#estimator" class="text-slate-300 hover:text-cyanAccent transition-colors">حاسبة السيستم</a>
+                <a href="#whyus" class="text-slate-300 hover:text-cyanAccent transition-colors">من نحن</a>
+            </nav>
+
+            <!-- CTA Button -->
+            <div class="hidden sm:flex items-center gap-4">
+                <a href="#contact" class="glow-btn bg-gradient-to-r from-blueAccent to-cyan-500 hover:from-cyan-500 hover:to-blueAccent text-navy-900 font-bold px-5 py-2.5 rounded-xl transition-all duration-300 flex items-center gap-2 text-sm">
+                    <i class="fa-solid fa-rocket"></i>
+                    اطلب سيستمك الآن
+                </a>
+            </div>
+
+            <!-- Mobile Menu Toggle Button -->
+            <button id="mobileMenuBtn" class="md:hidden text-slate-300 hover:text-white text-2xl p-2 focus:outline-none" aria-label="قائمة الملاحة">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass-card border-t border-slate-800 px-6 py-4 space-y-4">
+            <a href="#home" class="block text-cyanAccent font-semibold py-1">الرئيسية</a>
+            <a href="#services" class="block text-slate-300 hover:text-cyanAccent font-semibold py-1">خدماتنا</a>
+            <a href="#portfolio" class="block text-slate-300 hover:text-cyanAccent font-semibold py-1">معرض الأعمال</a>
+            <a href="#estimator" class="block text-slate-300 hover:text-cyanAccent font-semibold py-1">حاسبة السيستم</a>
+            <a href="#whyus" class="block text-slate-300 hover:text-cyanAccent font-semibold py-1">من نحن</a>
+            <a href="#contact" class="w-full text-center glow-btn bg-gradient-to-r from-blueAccent to-cyan-500 text-navy-900 font-bold px-5 py-2.5 rounded-xl block text-sm">
+                اطلب سيستمك الآن
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-20">
+
+        <!-- HERO SECTION -->
+        <section id="home" class="relative min-h-[90vh] flex items-center justify-center overflow-hidden py-16">
+            <!-- Background Glow FX -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-blueAccent/10 rounded-full blur-[120px] pointer-events-none"></div>
+            <div class="absolute bottom-10 right-10 w-72 h-72 bg-cyanAccent/10 rounded-full blur-[90px] pointer-events-none"></div>
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-cyanAccent text-sm font-semibold mb-6 border border-cyanAccent/30 animate-pulse">
+                    <span class="w-2 h-2 rounded-full bg-cyanAccent"></span>
+                    حلول وتطوير البرمجيات للشركات والمصانع
+                </div>
+
+                <!-- Main Title -->
+                <h1 class="text-4xl sm:text-6xl md:text-7xl font-black text-white tracking-tight leading-tight mb-6">
+                    BUNYAN <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyanAccent via-blue-400 to-indigo-300 glow-text">SOFTWARE</span>
+                    <span class="block text-2xl sm:text-4xl font-extrabold text-slate-300 mt-2">بنيان للبرمجيات</span>
+                </h1>
+
+                <!-- Slogan -->
+                <p class="max-w-3xl mx-auto text-lg sm:text-2xl text-slate-300 font-medium leading-relaxed mb-10">
+                    الأنظمة البرمجية بدقة وحلول متكاملة وتطوير تطبيقات ومواقع الويب
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                    <a href="#portfolio" class="w-full sm:w-auto glow-btn bg-gradient-to-r from-blueAccent to-cyan-500 text-navy-900 font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-3">
+                        <i class="fa-solid fa-layer-group"></i>
+                        استعرض مشاريعنا
+                    </a>
+                    <a href="https://wa.me/?text=مرحباً%20شركة%20بنيان%20للبرمجيات،%20أريد%20الاستفسار%20عن%20برمجة%20سيستم" target="_blank" class="w-full sm:w-auto glass-card hover:bg-slate-800 text-white font-bold text-lg px-8 py-4 rounded-xl transition-all duration-300 border border-slate-700 flex items-center justify-center gap-3">
+                        <i class="fa-brands fa-whatsapp text-green-400 text-xl"></i>
+                        تواصل معنا واتساب
+                    </a>
+                </div>
+
+                <!-- Stats Bar -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto mt-16 pt-10 border-t border-slate-800">
+                    <div class="p-4 glass-card rounded-2xl">
+                        <div class="text-3xl font-black text-cyanAccent mb-1">100%</div>
+                        <div class="text-xs text-slate-400 font-semibold">سيستم مخصص للعميل</div>
+                    </div>
+                    <div class="p-4 glass-card rounded-2xl">
+                        <div class="text-3xl font-black text-cyanAccent mb-1">+50k</div>
+                        <div class="text-xs text-slate-400 font-semibold">عملية معالجة يومياً</div>
+                    </div>
+                    <div class="p-4 glass-card rounded-2xl">
+                        <div class="text-3xl font-black text-cyanAccent mb-1">24/7</div>
+                        <div class="text-xs text-slate-400 font-semibold">دعم ومتابعة مستمرة</div>
+                    </div>
+                    <div class="p-4 glass-card rounded-2xl">
+                        <div class="text-3xl font-black text-cyanAccent mb-1">0%</div>
+                        <div class="text-xs text-slate-400 font-semibold">أخطاء في الحسابات</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SERVICES SECTION -->
+        <section id="services" class="py-20 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-sm font-bold text-cyanAccent tracking-widest uppercase mb-2">خدمات بنيان</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white">حلول برمجية شاملة تناسب حجم أعمالك</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-blueAccent to-cyanAccent mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Services Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Service 1 -->
+                    <div class="glass-card p-8 rounded-3xl transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blueAccent/20 to-cyanAccent/20 flex items-center justify-center text-cyanAccent text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">أنظمة ERP والسيستمات الإدارية</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            بناء سيستم إداري متكامل لمتابعة خطوط الإنتاج بالمصانع، إدارة شركات اللوجستيات والشحن، تتبع الطلبيات، وإدارة حسابات الصرف والعملاء بكل دقة.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent"></i> إدارات الأدوار والصلاحيات</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent"></i> تقارير مالية وختامية تفصيلية</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent"></i> أتمتة دورة العمل اليومية</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="glass-card p-8 rounded-3xl transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blueAccent/20 to-cyanAccent/20 flex items-center justify-center text-cyanAccent text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-cash-register"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">أنظمة المبيعات والمخازن (POS)</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            برامج كاشير ومبيعات للمحلات والمتاجر، تدعم الربط مع أجهزة الباركود، طباعة الفواتير الفورية، حساب الأرباح والخسائر، وتنبيهات نواقص المخزون.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2"><li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent"></i> قارئ باركود وطباعة فواتير</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent"></i> تنبيهات النواقص وعجز المخزن</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent"></i> حساب صافي الأرباح تلقائياً</li>
+                        </ul>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="glass-card p-8 rounded-3xl transition-all duration-300 group hover:-translate-y-2 relative overflow-hidden">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blueAccent/20 to-cyanAccent/20 flex items-center justify-center text-cyanAccent text-3xl mb-6 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-white mb-4">تطوير تطبيقات ومواقع الويب</h3>
+                        <p class="text-slate-400 text-sm leading-relaxed mb-6">
+                            تطوير مواقع الشركات التعريفية وتطبيقات الويب السريعة (Custom Web Applications) المصممة بأعلى معايير الأمان والاستجابة على الهاتف.
+                        </p>
+                        <ul class="space-y-2 text-xs text-slate-300 font-medium">
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent"></i> تصميم متجاوب 100% للشاشات</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent"></i> سرعة وأمان قواعد البيانات</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyanAccent"></i> لوحة تحكم سهلة الاستخدام</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PORTFOLIO SECTION -->
+        <section id="portfolio" class="py-20 bg-navy-900/50 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-sm font-bold text-cyanAccent tracking-widest uppercase mb-2">معرض الأعمال</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white">استعرض أبرز سيستمات Bunyan Software</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-blueAccent to-cyanAccent mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Filter Tabs -->
+                <div class="flex flex-wrap items-center justify-center gap-3 mb-12" id="portfolioFilter">
+                    <button class="filter-btn active px-6 py-2.5 rounded-xl font-bold text-sm transition-all bg-gradient-to-r from-blueAccent to-cyan-500 text-navy-900 shadow-lg" data-filter="all">
+                        الكل
+                    </button>
+                    <button class="filter-btn px-6 py-2.5 rounded-xl font-bold text-sm transition-all glass-card text-slate-300 hover:text-white hover:border-cyanAccent/50" data-filter="erp">
+                        أنظمة ERP
+                    </button>
+                    <button class="filter-btn px-6 py-2.5 rounded-xl font-bold text-sm transition-all glass-card text-slate-300 hover:text-white hover:border-cyanAccent/50" data-filter="pos">
+                        أنظمة POS والمبيعات
+                    </button>
+                    <button class="filter-btn px-6 py-2.5 rounded-xl font-bold text-sm transition-all glass-card text-slate-300 hover:text-white hover:border-cyanAccent/50" data-filter="web">
+                        تطبيقات الويب
+                    </button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                    
+                    <!-- Project 1 -->
+                    <div class="project-item erp glass-card rounded-3xl overflow-hidden group hover:border-cyanAccent/50 transition-all duration-300">
+                        <div class="h-64 bg-slate-800 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-navy-700 to-navy-900">
+                            <!-- Visual Graphic Placeholder -->
+                            <div class="w-full h-full rounded-xl border border-slate-700 bg-navy-800 p-4 shadow-2xl flex flex-col justify-between group-hover:scale-105 transition-transform duration-500">
+                                <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                    <div class="flex items-center gap-2">
+                                        <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                                        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                                    </div>
+                                    <span class="text-xs text-cyanAccent font-mono">Bunyan_ERP_v2.1</span>
+                                </div>
+                                <div class="space-y-2 my-2">
+                                    <div class="h-4 bg-slate-700 rounded w-3/4"></div>
+                                    <div class="h-3 bg-slate-700/50 rounded w-1/2"></div>
+                                    <div class="grid grid-cols-3 gap-2 pt-2">
+                                        <div class="h-10 bg-cyan-500/10 border border-cyan-500/30 rounded flex items-center justify-center text-cyanAccent text-xs font-bold">مبيعات</div>
+                                        <div class="h-10 bg-blue-500/10 border border-blue-500/30 rounded flex items-center justify-center text-blue-400 text-xs font-bold">مخزون</div>
+                                        <div class="h-10 bg-indigo-500/10 border border-indigo-500/30 rounded flex items-center justify-center text-indigo-400 text-xs font-bold">تقارير</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-cyanAccent bg-cyanAccent/10 px-3 py-1 rounded-full inline-block mb-3">نظام ERP مخصص</span>
+                            <h3 class="text-xl font-bold text-white mb-2">نظام Bunyan ERP لإدارة المصانع واللوجستيات</h3>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                                سيستم ويب متكامل لمتابعة خطوط الإنتاج والطلبيات، تتبع الشحنات، وحساب التكاليف والعمولات مع لوحة تحكم للإدارة.
+                            </p>
+                            <button onclick="openModal('modal1')" class="text-cyanAccent font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                                عرض تفاصيل السيستم والتقنيات <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-item pos glass-card rounded-3xl overflow-hidden group hover:border-cyanAccent/50 transition-all duration-300">
+                        <div class="h-64 bg-slate-800 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-navy-700 to-navy-900">
+                            <div class="w-full h-full rounded-xl border border-slate-700 bg-navy-800 p-4 shadow-2xl flex flex-col justify-between group-hover:scale-105 transition-transform duration-500">
+                                <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                    <i class="fa-solid fa-barcode text-cyanAccent text-xl"></i>
+                                    <span class="text-xs text-green-400 font-bold">متصل - كاشير حقيقي</span>
+                                </div>
+                                <div class="space-y-3 my-auto">
+                                    <div class="flex justify-between items-center text-xs">
+                                        <span class="text-slate-400">إجمالي الفاتورة:</span>
+                                        <span class="text-green-400 font-bold text-base">1,450 EGP</span>
+                                    </div>
+                                    <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                        <div class="w-3/4 h-full bg-cyanAccent"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-green-400 bg-green-500/10 px-3 py-1 rounded-full inline-block mb-3">أنظمة POS ومبيعات</span>
+                            <h3 class="text-xl font-bold text-white mb-2">نظام Bunyan POS الذكي للمحلات والمتاجر</h3>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                                نظام مبيعات ومخازن سريع جداً، يدعم قراءة الباركود، طباعة الفواتير، وحساب الأرباح وعجز المخزن لحظياً.
+                            </p>
+                            <button onclick="openModal('modal2')" class="text-cyanAccent font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                                عرض تفاصيل السيستم والتقنيات <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-item erp glass-card rounded-3xl overflow-hidden group hover:border-cyanAccent/50 transition-all duration-300">
+                        <div class="h-64 bg-slate-800 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-navy-700 to-navy-900">
+                            <div class="w-full h-full rounded-xl border border-slate-700 bg-navy-800 p-4 shadow-2xl flex flex-col justify-between group-hover:scale-105 transition-transform duration-500">
+                                <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                    <i class="fa-solid fa-helmet-safety text-yellow-500 text-xl"></i>
+                                    <span class="text-xs text-slate-300">إدارة مواقع ومقاولات</span>
+                                </div>
+                                <div class="grid grid-cols-2 gap-2 my-auto">
+                                    <div class="p-2 bg-slate-700/50 rounded text-center">
+                                        <span class="text-[10px] text-slate-400 block">العهود المالية</span>
+                                        <span class="text-xs font-bold text-white">محدثة</span>
+                                    </div>
+                                    <div class="p-2 bg-slate-700/50 rounded text-center">
+                                        <span class="text-[10px] text-slate-400 block">حضور العمال</span>
+                                        <span class="text-xs font-bold text-cyanAccent">98%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-yellow-400 bg-yellow-500/10 px-3 py-1 rounded-full inline-block mb-3">إدارة مواقع بناء ومشاريع</span>
+                            <h3 class="text-xl font-bold text-white mb-2">سيستم إدارة مواقع البناء Construction Manager</h3>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                                متابعة مصروفات المواقع، عهود المهندسين، حضور العمالة، وتقارير استهلاك المواد مثل الأسمنت والحديد.
+                            </p>
+                            <button onclick="openModal('modal3')" class="text-cyanAccent font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                                عرض تفاصيل السيستم والتقنيات <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-item web glass-card rounded-3xl overflow-hidden group hover:border-cyanAccent/50 transition-all duration-300">
+                        <div class="h-64 bg-slate-800 relative overflow-hidden flex items-center justify-center p-6 bg-gradient-to-br from-navy-700 to-navy-900">
+                            <div class="w-full h-full rounded-xl border border-slate-700 bg-navy-800 p-4 shadow-2xl flex flex-col justify-between group-hover:scale-105 transition-transform duration-500">
+                                <div class="flex items-center justify-between border-b border-slate-700 pb-2">
+                                    <i class="fa-solid fa-globe text-blue-400 text-xl"></i>
+                                    <span class="text-xs text-cyanAccent">Custom Web App</span>
+                                </div>
+                                <div class="flex items-center justify-center h-full">
+                                    <span class="text-sm font-bold text-slate-300 border border-slate-700 px-4 py-2 rounded-lg bg-navy-900">منصة ويب تفاعلية فائقة السرعة</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full inline-block mb-3">تطبيق ويب مخصص</span>
+                            <h3 class="text-xl font-bold text-white mb-2">منصة وتطبيقات الويب المخصصة Custom Web Apps</h3>
+                            <p class="text-slate-400 text-sm mb-4 line-clamp-2">
+                                بناء وتطوير منصة ويب سريعة وسلسة لاستقبال الطلبات أونلاين وإدارة التواصل مع العملاء بمرونة كاملة.
+                            </p>
+                            <button onclick="openModal('modal4')" class="text-cyanAccent font-bold text-sm flex items-center gap-2 hover:gap-3 transition-all">
+                                عرض تفاصيل السيستم والتقنيات <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ESTIMATOR / CALCULATOR TOOL SECTION -->
+        <section id="estimator" class="py-20 relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card p-8 sm:p-12 rounded-3xl border border-cyanAccent/20 relative overflow-hidden">
+                    <div class="absolute -top-10 -right-10 w-40 h-40 bg-cyanAccent/10 rounded-full blur-3xl"></div>
+
+                    <!-- Header -->
+                    <div class="text-center mb-10">
+                        <span class="text-xs font-bold text-cyanAccent bg-cyanAccent/10 px-4 py-1.5 rounded-full inline-block mb-3">أداة تفاعلية حية</span>
+                        <h2 class="text-3xl font-extrabold text-white">حاسبة تكلفة ووقت تنفيذ السيستم</h2>
+                        <p class="text-slate-400 text-sm mt-2">حدد تفاصيل نشاطك للحصول على تقدير فوري لمشروعك مع Bunyan Software</p>
+                    </div>
+
+                    <!-- Estimator Form -->
+                    <div class="space-y-6">
+                        <!-- Business Type -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-200 mb-2">1. حدد نوع النشاط التجاري:</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                                <button type="button" class="estimator-type-btn active p-4 rounded-xl glass-card text-center border-cyanAccent text-cyanAccent font-bold text-sm" data-type="factory" data-base="15000" data-days="20">
+                                    <i class="fa-solid fa-industry text-2xl block mb-2"></i>
+                                    مصنع / شركة إنتاج
+                                </button>
+                                <button type="button" class="estimator-type-btn p-4 rounded-xl glass-card text-center border-slate-700 text-slate-300 font-bold text-sm hover:border-slate-500" data-type="store" data-base="8000" data-days="10">
+                                    <i class="fa-solid fa-store text-2xl block mb-2"></i>
+                                    متجر / محلات تجارية
+                                </button>
+                                <button type="button" class="estimator-type-btn p-4 rounded-xl glass-card text-center border-slate-700 text-slate-300 font-bold text-sm hover:border-slate-500" data-type="company" data-base="10000" data-days="14">
+                                    <i class="fa-solid fa-briefcase text-2xl block mb-2"></i>
+                                    شركة خدمات / لوجستيات
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Number of Users -->
+                        <div>
+                            <div class="flex justify-between text-sm font-bold text-slate-200 mb-2">
+                                <span>2. عدد مستخدمي السيستم (لوحة التحكم):</span>
+                                <span id="usersVal" class="text-cyanAccent font-black">5 مستخدمين</span>
+                            </div>
+                            <input type="range" id="usersRange" min="1" max="30" value="5" class="w-full accent-cyanAccent bg-slate-700 h-2 rounded-lg cursor-pointer">
+                        </div>
+
+                        <!-- Features Checkboxes -->
+                        <div>
+                            <label class="block text-sm font-bold text-slate-200 mb-2">3. الميزات الإضافية المطلوبة:</label>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
+                                <label class="flex items-center gap-3 p-3 glass-card rounded-xl cursor-pointer">
+                                    <input type="checkbox" class="feature-check accent-cyanAccent w-4 h-4" data-cost="2000" data-time="3">
+                                    <span>ربط قارئ الباركود والطابعات</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 glass-card rounded-xl cursor-pointer">
+                                    <input type="checkbox" class="feature-check accent-cyanAccent w-4 h-4" data-cost="3000" data-time="4">
+                                    <span>تقارير مالية وختامية متقدمة</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 glass-card rounded-xl cursor-pointer">
+                                    <input type="checkbox" class="feature-check accent-cyanAccent w-4 h-4" data-cost="2500" data-time="3">
+                                    <span>نظام تنبيهات واتساب / رسائل</span>
+                                </label>
+                                <label class="flex items-center gap-3 p-3 glass-card rounded-xl cursor-pointer">
+                                    <input type="checkbox" class="feature-check accent-cyanAccent w-4 h-4" data-cost="1500" data-time="2">
+                                    <span>دعم فني ممتد لمدة سنة</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Estimate Result Box -->
+                        <div class="mt-8 p-6 bg-navy-900/90 rounded-2xl border border-cyanAccent/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+                            <div>
+                                <span class="text-xs text-slate-400 block font-semibold">التكلفة التقديرية المبدئية:</span>
+                                <span id="totalCost" class="text-3xl font-black text-cyanAccent glow-text">15,000 EGP</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs text-slate-400 block font-semibold">مدة التسليم المتوقعة:</span>
+                                <span id="totalDays" class="text-xl font-bold text-white">20 يوم عمل</span>
+                            </div>
+                            <a href="#contact" onclick="fillContactFromEstimator()" class="glow-btn bg-cyanAccent text-navy-900 font-bold px-6 py-3 rounded-xl text-sm whitespace-nowrap">
+                                اطلب بهذا التقدير
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WHY BUNYAN SECTION -->
+        <section id="whyus" class="py-20 bg-navy-900/40 relative">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-sm font-bold text-cyanAccent tracking-widest uppercase mb-2">لماذا نتميز؟</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold text-white">لماذا تختار Bunyan Software لشركتك؟</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-blueAccent to-cyanAccent mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="glass-card p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 rounded-xl bg-cyanAccent/10 text-cyanAccent flex items-center justify-center text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">دقة التكويد والبرمجة</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">أكواد نظيفة ومنظمة تضمن لك سرعة فائقة وعدم حدوث أي تهنيج أو بطء في العمل.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 rounded-xl bg-cyanAccent/10 text-cyanAccent flex items-center justify-center text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-sliders"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">تخصيص 100%</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">نصمم السيستم بالضبط على مقاس دورتك المستندية بدون فرض خواص معقدة لا تحتاجها.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 rounded-xl bg-cyanAccent/10 text-cyanAccent flex items-center justify-center text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">أمان وقواعد متينة</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">حماية بياناتك وحساباتك بأحدث تقنيات التشفير وقواعد بيانات MySQL آمنة تماماً.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl text-center">
+                        <div class="w-12 h-12 rounded-xl bg-cyanAccent/10 text-cyanAccent flex items-center justify-center text-2xl mx-auto mb-4">
+                            <i class="fa-solid fa-headset"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-white mb-2">دعم فني ومتابعة</h3>
+                        <p class="text-slate-400 text-xs leading-relaxed">نحن معك خطوة بخطوة بعد التسليم لتدريب فريقك وحل أي استفسارات فوراً.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 relative">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="glass-card p-8 sm:p-12 rounded-3xl border border-slate-700">
+                    <div class="text-center mb-10">
+                        <h2 class="text-3xl font-extrabold text-white">تواصل معنا واطلب سيستمك الآن</h2>
+                        <p class="text-slate-400 text-sm mt-2">اترك بياناتك وسيتواصل معك مهندس البرمجيات لمناقشة التفاصيل</p>
+                    </div>
+
+                    <form id="contactForm" onsubmit="handleContactSubmit(event)" class="space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-300 mb-2">الاسم بالكامل:</label>
+                                <input type="text" required placeholder="أحمد محمد" class="w-full bg-navy-900 border border-slate-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-cyanAccent text-sm">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-300 mb-2">رقم الهاتف / الواتساب:</label>
+                                <input type="tel" required placeholder="010XXXXXXXX" class="w-full bg-navy-900 border border-slate-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-cyanAccent text-sm">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-slate-300 mb-2">نوع النشاط التجاري:</label>
+                                <select id="formBusinessType" class="w-full bg-navy-900 border border-slate-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-cyanAccent text-sm">
+                                    <option value="مصنع / شركة إنتاج">مصنع / شركة إنتاج</option>
+                                    <option value="متجر / محلات تجارية">متجر / محلات تجارية</option>
+                                    <option value="شركة خدمات / لوجستيات">شركة خدمات / لوجستيات</option>
+                                    <option value="موقع / تطبيق ويب مخصص">موقع / تطبيق ويب مخصص</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-slate-300 mb-2">نوع الخدمة المطلوبة:</label>
+                                <select class="w-full bg-navy-900 border border-slate-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-cyanAccent text-sm">
+                                    <option>سيستم ERP متكامل</option>
+                                    <option>نظام POS ومبيعات</option>
+                                    <option>تطبيق أو موقع ويب</option>
+                                    <option>استشارة برمجية وتطوير</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-bold text-slate-300 mb-2">تفاصيل المتطلبات أو الاستفسار:</label>
+                            <textarea id="formDetails" rows="4" placeholder="اكتب نبذة عن السيستم اللي محتاجه وطبيعة شغل شركتك..." class="w-full bg-navy-900 border border-slate-700 rounded-xl p-3.5 text-white focus:outline-none focus:border-cyanAccent text-sm"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full glow-btn bg-gradient-to-r from-blueAccent to-cyan-500 text-navy-900 font-extrabold py-4 rounded-xl text-base transition-all">
+                            <i class="fa-solid fa-paper-plane ml-2"></i> إرسال الطلب فوراً
+                        </button>
+                    </form>
+
+                    <!-- Message Status Alert Box -->
+                    <div id="formStatus" class="hidden mt-4 p-4 rounded-xl text-center text-sm font-bold"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-navy-900 border-t border-slate-800 py-10 text-slate-400 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+                <i class="fa-solid fa-cubes text-cyanAccent text-xl"></i>
+                <span class="font-bold text-white">Bunyan Software — بنيان للبرمجيات</span>
+            </div>
+            <p class="text-xs text-slate-500">
+                &copy; 2026 Bunyan Software. جميع الحقوق محفوظة. الأنظمة البرمجية بدقة وحلول متكاملة.
+            </p>
+            <div class="flex items-center gap-4 text-slate-400">
+                <a href="#" class="hover:text-cyanAccent"><i class="fa-brands fa-facebook text-lg"></i></a>
+                <a href="#" class="hover:text-cyanAccent"><i class="fa-brands fa-linkedin text-lg"></i></a>
+                <a href="https://wa.me/" class="hover:text-cyanAccent"><i class="fa-brands fa-whatsapp text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- PROJECT MODALS (MODAL DIALOGS) -->
+    <!-- Modal 1: ERP -->
+    <div id="modal1" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-cyanAccent/30 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal1')" class="absolute top-4 left-4 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <span class="text-xs font-bold text-cyanAccent bg-cyanAccent/10 px-3 py-1 rounded-full inline-block mb-3">تفاصيل المشروع</span>
+            <h3 class="text-2xl font-bold text-white mb-4">نظام Bunyan ERP لإدارة المصانع واللوجستيات</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                تم بناء هذا السيستم خصيصاً للمصانع والشركات التي تمتلك دورات عمل معقدة، حيث يقوم بتتبع الطلبيات من مرحلة التوريد وحتى التسليم النهائي للعميل.
+            </p>
+            <div class="space-y-4 mb-6">
+                <h4 class="text-sm font-bold text-white">التقنيات المستخدمة (Tech Stack):</h4>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-cyanAccent">PHP 8.x</span>
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-cyanAccent">MySQL Database</span>
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-cyanAccent">JavaScript (ES6+)</span>
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-cyanAccent">Tailwind CSS</span>
+                </div>
+            </div>
+            <button onclick="closeModal('modal1'); location.href='#contact';" class="w-full glow-btn bg-cyanAccent text-navy-900 font-bold py-3 rounded-xl text-sm">طلب سيستم مماثل</button>
+        </div>
+    </div>
+
+    <!-- Modal 2: POS -->
+    <div id="modal2" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-green-500/30 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal2')" class="absolute top-4 left-4 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <span class="text-xs font-bold text-green-400 bg-green-500/10 px-3 py-1 rounded-full inline-block mb-3">تفاصيل المشروع</span>
+            <h3 class="text-2xl font-bold text-white mb-4">نظام Bunyan POS الذكي للمحلات والمتاجر</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                سيستم كاشير ومبيعات فائق السرعة يعتمد على الأداء الفوري بدون أي تأخير عند تسجيل المنتجات بالباركود، مع إمكانية العمل أوفلاين وأونلاين.
+            </p>
+            <div class="space-y-4 mb-6">
+                <h4 class="text-sm font-bold text-white">التقنيات المستخدمة (Tech Stack):</h4>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-green-400">PHP Native / OOP</span>
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-green-400">MySQL / Indexed Database</span>
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-green-400">Barcode Web API</span>
+                </div>
+            </div>
+            <button onclick="closeModal('modal2'); location.href='#contact';" class="w-full glow-btn bg-green-400 text-navy-900 font-bold py-3 rounded-xl text-sm">طلب سيستم مماثل</button>
+        </div>
+    </div>
+
+    <!-- Modal 3: Construction -->
+    <div id="modal3" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-yellow-500/30 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal3')" class="absolute top-4 left-4 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <span class="text-xs font-bold text-yellow-400 bg-yellow-500/10 px-3 py-1 rounded-full inline-block mb-3">تفاصيل المشروع</span>
+            <h3 class="text-2xl font-bold text-white mb-4">سيستم إدارة مواقع البناء والمشاريع</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                حل برمجي لإدارة مواقع المقاولات والإنشاءات، يركز على تتبع العهود المالية للمهندسين، تسجيل أيام عمال التراحيل، وحساب تكلفة الخامات المسحوبة.
+            </p>
+            <div class="space-y-4 mb-6">
+                <h4 class="text-sm font-bold text-white">التقنيات المستخدمة (Tech Stack):</h4>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-yellow-400">PHP Framework</span>
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-yellow-400">MySQL</span>
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-yellow-400">Chart.js (تقارير بيانية)</span>
+                </div>
+            </div>
+            <button onclick="closeModal('modal3'); location.href='#contact';" class="w-full glow-btn bg-yellow-400 text-navy-900 font-bold py-3 rounded-xl text-sm">طلب سيستم مماثل</button>
+        </div>
+    </div>
+
+    <!-- Modal 4: Custom Web App -->
+    <div id="modal4" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="glass-card max-w-2xl w-full p-6 sm:p-8 rounded-3xl border border-blue-500/30 relative max-h-[90vh] overflow-y-auto">
+            <button onclick="closeModal('modal4')" class="absolute top-4 left-4 text-slate-400 hover:text-white text-xl"><i class="fa-solid fa-xmark"></i></button>
+            <span class="text-xs font-bold text-blue-400 bg-blue-500/10 px-3 py-1 rounded-full inline-block mb-3">تفاصيل المشروع</span>
+            <h3 class="text-2xl font-bold text-white mb-4">منصة وتطبيقات الويب المخصصة Custom Web Apps</h3>
+            <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                تصميم وتطوير تطبيقات ويب تناسب المتاجر أو الشركات الخدمية، بتصميم سريع ومرن يعمل بكفاءة عالية على الهواتف وأجهزة الكمبيوتر.
+            </p>
+            <div class="space-y-4 mb-6">
+                <h4 class="text-sm font-bold text-white">التقنيات المستخدمة (Tech Stack):</h4>
+                <div class="flex flex-wrap gap-2 text-xs font-mono">
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-blue-400">HTML5 / Tailwind CSS</span>
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-blue-400">JavaScript Async</span>
+                    <span class="bg-navy-900 border border-slate-700 px-3 py-1 rounded-lg text-blue-400">RESTful APIs / PHP</span>
+                </div>
+            </div>
+            <button onclick="closeModal('modal4'); location.href='#contact';" class="w-full glow-btn bg-blue-400 text-navy-900 font-bold py-3 rounded-xl text-sm">طلب تطبيق مماثل</button>
+        </div>
+    </div>
+
+    <!-- JAVASCRIPT INTERACTION LOGIC -->
+    <script>
+        // Mobile Navigation Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Portfolio Filtering Tabs
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectItems = document.querySelectorAll('.project-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-gradient-to-r', 'from-blueAccent', 'to-cyan-500', 'text-navy-900', 'shadow-lg');
+                    b.classList.add('glass-card', 'text-slate-300');
+                });
+                btn.classList.add('active', 'bg-gradient-to-r', 'from-blueAccent', 'to-cyan-500', 'text-navy-900', 'shadow-lg');
+                btn.classList.remove('glass-card', 'text-slate-300');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectItems.forEach(item => {
+                    if (filter === 'all' || item.classList.contains(filter)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // Modal Handler Functions
+        function openModal(id) {
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById(id).classList.add('flex');
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).classList.add('hidden');
+            document.getElementById(id).classList.remove('flex');
+        }
+
+        // Estimator Tool Logic
+        let baseCost = 15000;
+        let baseDays = 20;
+
+        const typeBtns = document.querySelectorAll('.estimator-type-btn');
+        const usersRange = document.getElementById('usersRange');
+        const usersVal = document.getElementById('usersVal');
+        const featureChecks = document.querySelectorAll('.feature-check');
+        const totalCostEl = document.getElementById('totalCost');
+        const totalDaysEl = document.getElementById('totalDays');
+
+        typeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                typeBtns.forEach(b => {
+                    b.classList.remove('active', 'border-cyanAccent', 'text-cyanAccent');
+                    b.classList.add('border-slate-700', 'text-slate-300');
+                });
+                btn.classList.add('active', 'border-cyanAccent', 'text-cyanAccent');
+                btn.classList.remove('border-slate-700', 'text-slate-300');
+
+                baseCost = parseInt(btn.getAttribute('data-base'));
+                baseDays = parseInt(btn.getAttribute('data-days'));
+                calculateEstimate();
+            });
+        });
+
+        usersRange.addEventListener('input', (e) => {
+            usersVal.textContent = `${e.target.value} مستخدمين`;
+            calculateEstimate();
+        });
+
+        featureChecks.forEach(check => {
+            check.addEventListener('change', calculateEstimate);
+        });
+
+        function calculateEstimate() {
+            let userExtraCost = (parseInt(usersRange.value) - 1) * 300;
+            let featuresCost = 0;
+            let featuresTime = 0;
+
+            featureChecks.forEach(c => {
+                if (c.checked) {
+                    featuresCost += parseInt(c.getAttribute('data-cost'));
+                    featuresTime += parseInt(c.getAttribute('data-time'));
+                }
+            });
+
+            let finalCost = baseCost + userExtraCost + featuresCost;
+            let finalDays = baseDays + featuresTime;
+
+            totalCostEl.textContent = `${finalCost.toLocaleString()} EGP`;
+            totalDaysEl.textContent = `${finalDays} يوم عمل`;
+        }
+
+        function fillContactFromEstimator() {
+            const selectedType = document.querySelector('.estimator-type-btn.active').innerText.trim();
+            const detailsTextarea = document.getElementById('formDetails');
+            detailsTextarea.value = `طلب تقدير مبدئي لسلسلة: ${selectedType}\nعدد المستخدمين: ${usersRange.value}\nالتكلفة التقديرية: ${totalCostEl.textContent}`;
+        }
+
+        // Contact Form Submission Handler
+        function handleContactSubmit(e) {
+            e.preventDefault();
+            const statusBox = document.getElementById('formStatus');
+            statusBox.classList.remove('hidden', 'bg-red-500/20', 'text-red-400');
+            statusBox.classList.add('bg-cyan-500/20', 'text-cyanAccent', 'border', 'border-cyanAccent/40');
+            statusBox.textContent = 'تم إرسال طلبك بنجاح! سيتواصل معك فريق Bunyan Software خلال ساعات قريبة.';
+            document.getElementById('contactForm').reset();
+        }
+    </script>
+</body>
+</html>
